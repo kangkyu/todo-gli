@@ -24,7 +24,7 @@ switch [:s,:switch]
 desc 'Describe some flag here'
 default_value 'the default'
 arg_name 'The name of the argument'
-flag [:f,:flagname]
+flag [:f,:filename]
 
 desc 'Describe new here'
 arg_name 'Describe arguments to new here'
@@ -33,12 +33,13 @@ command :new do |c|
   c.switch :f
 
   c.action do |global_options,options,args|
-    puts "Global:"
-    puts "-f - #{global_options[:f]}"
-    puts "Command:"
-    puts "-f - #{options[:f] ? 'true' : 'false'}"
-    puts "--priority - #{options[:priority]}"
-    puts "args - #{args.join(',')}"
+    # todos = read_todos(global_options[:filename])
+    # if options[:s] == 'name'
+    #   todos = todos.sort { |a,b| a <=> b }
+    # end
+    # todos.each do |todo|
+    #   puts todo
+    # end
   end
 end
 
