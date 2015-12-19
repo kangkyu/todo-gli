@@ -19,20 +19,20 @@ default_value 'the default'
 arg_name 'The name of the argument'
 flag [:f,:filename]
 
-desc 'Describe new here'
-arg_name 'Describe arguments to new here'
+desc 'Create a new task in the task list'
+long_desc "
+A task has a name and a priority. By default, new tasks have the lowest possible priority, though this can be overriden.
+"
+arg_name 'task_name'
 command :new do |c|
-  c.flag :priority
+  c.desc 'set the priority of the new task, 1 being the highest'
+  c.arg_name 'priority'
+  c.flag :p
+
+  c.desc 'put the new task first in the list'
   c.switch :f
 
   c.action do |global_options,options,args|
-    # todos = read_todos(global_options[:filename])
-    # if options[:s] == 'name'
-    #   todos = todos.sort { |a,b| a <=> b }
-    # end
-    # todos.each do |todo|
-    #   puts todo
-    # end
   end
 end
 
