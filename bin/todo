@@ -28,6 +28,16 @@ command :new do |c|
   c.switch :f
 
   c.action do |global_options,options,args|
+    new_tasks = args
+    filename = global_options[:f]
+    # puts options[:f]
+    # puts options[:p]
+    File.open(filename, 'a') do |file|
+      new_tasks.each do |new_task|
+        write_todo(file,new_task,Time.now,'')
+      end
+      puts "Task added."
+    end
   end
 end
 
